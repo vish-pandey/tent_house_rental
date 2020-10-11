@@ -1,0 +1,2 @@
+$('.transaction-modal-div').html("<%= j render(partial: 'transaction_modal', locals: { transaction: @transaction, customers: @customers, products: @products}) %>");
+$('.transaction-modal').show()

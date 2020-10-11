@@ -1,0 +1,23 @@
+
+<div class="container" style="margin-top: 100px;">
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Customer Name</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% if @customers.present? %>
+		  	<% @customers.each_with_index do |customer, i|%>
+			    <tr>
+			      <th scope="row"><%= i+1%></th>
+			      <td><%= customer.name%></td>
+			    </tr>
+			  <% end %>
+			<% else %>
+				No Customer found!!
+			<% end %>  
+	  </tbody>
+	</table>
+</div>

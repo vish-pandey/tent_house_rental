@@ -1,0 +1,22 @@
+<section id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Products</h2>
+        <hr class="star-primary">
+      </div>
+    </div>
+    <div class="row">
+      <% if @products.present? %>
+        <% @products.each do |product|%>
+          <div class="col-sm-4 portfolio-item">
+            <%= image_tag image_path(product.title), class: "img-responsive product-image", alt: ""%>
+            <h4 class="product-title"><%= product.title.camelcase%></h4>
+          </div>
+        <% end %>
+      <% else %>
+        <p>No Product found!!</p>
+      <% end %>
+    </div>
+  </div>
+</section>

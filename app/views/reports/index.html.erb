@@ -1,0 +1,16 @@
+<div class="container" style="margin-top: 100px;">
+  <div class="tab-container">
+    <ul class="nav nav-tabs schedule-tabs" style="font-size: 12px;">
+      <li class="active"><a href="#tab1" data-toggle="tab">Inventory Summary Report</a></li>
+      <li><a href="#tab2" data-toggle="tab"></span>Inventory Detailed Report</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="tab1" class="tab-pane active">
+        <%= render partial: 'summary_report'%>
+      </div>
+      <div id="tab2" class="tab-pane">
+        <%= render partial: 'detailed_report'%>
+      </div>
+    </div>
+  </div>
+</div>

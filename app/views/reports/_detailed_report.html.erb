@@ -1,0 +1,49 @@
+<% if @products.present? %>
+	<% @products.each do |product|%>
+		<div class="product-details">
+			<div class="row">
+				<div class="col-md-6">
+					<b>Item Name:</b>
+				</div>
+				<div class="col-md-6">
+					<%= product.title%>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<b>Available Quantity:</b>
+				</div>
+				<div class="col-md-6">
+					<%= product.total_quantity - product.booked_quantity%>
+				</div>
+			</div>
+		</div>
+    </br>
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th>Transaction Id</th>
+			      <th>Date/Time</th>
+			      <th>Type</th>
+			      <th>Quantity</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @transactions.present? %>
+			  		<% transactions = @transactions.select{|trns| trns.product_id.eql?(product.id)}%>
+				  	<% transactions&.each do |transaction|%>
+					    <tr>
+					      <td><%= transaction.id %></td>
+					      <td><%= transaction.created_at.strftime("%d-%m-%Y %I:%M %p")%></td>
+					      <td><%= transaction.transaction_type.camelcase%></td>
+					      <td><%= transaction.quantity%></td>
+					    </tr>
+					  <% end %>
+					<% end %>  
+			  </tbody>
+			</table>
+    </br>
+  <% end %>
+<% else %>
+	<p> No Product found!!</p>
+<% end %> 

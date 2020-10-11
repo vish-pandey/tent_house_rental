@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item Id</th>
+      <th>Item Name</th>
+      <th>Available Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% if @products.present? %>
+	  	<% @products.each do |product|%>
+		    <tr>
+		      <td scope="row"><%= product.id %></td>
+		      <td><%= product.title%></td>
+		      <td><%= product.total_quantity - product.booked_quantity%></td>
+		    </tr>
+		  <% end %>
+		<% else %>
+			<p> No Product found!!</p>
+		<% end %>  
+  </tbody>
+</table>
